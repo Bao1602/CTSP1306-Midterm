@@ -16,21 +16,24 @@ function findMissingNumber(arr,n){
     return missNum;
 }
 
-/*
-TEST CASES
-array = [5, 4, 1, 2]
-n = 5
-# Expected output: 3
-array = [9, 5, 3, 2, 6, 1, 7, 8, 10]
-n = 10
-# Expected output: 4
-array = [2, 3, 1, 5]
-n = 5
-# Expected output: 4
-array = [1, 2, 3, 4, 5]
-n = 6
-# Expected output: 6
-*/
+//Time complexity O(n*2)
+function findMissingNumber2(arr,n){
+
+    for(let i = n; i > 0; i--){
+        let foundNumInArr = false;
+        for(let j = 0; j < arr.length; j++){
+            if(i === arr[j]){
+                foundNumInArr = true;
+            }
+        }
+
+        if(!foundNumInArr){
+            return i;
+        }
+
+    }
+    console.log("Can't find the number");
+}
 
 //Question 2
 //Time complexity : O(n*2)
@@ -44,25 +47,8 @@ function findindicesSum(arr,t){
             }
         }
     }
-    console.log("No such number");
+    console.log("No indices Sum match");
 }
-
-
-/*
-TEST CASES
-
-array = [1, 5, 2, 7]
-target = 8
-# Expected output: [1, 3]
-
-array = [20, 1, 5, 2, 11]
-target = 3
-# Expected output: [1, 3]
-
-array = [3, 2, 4]
-target = 6
-# Expected output: [1, 2]
-*/
 
 
 //Question 3
@@ -104,25 +90,6 @@ function checkIfCycleExists(headNode) {
 };
 
 
-/*
-TEST CASES:
-
-headNode = "A";
-Linked List = “A” -> “B” -> “C” -> “A”
-// Expected Output: true
-
-headNode = "1";
-Linked List = “1” -> “2” -> “3” -> null
-// Expected Output: false
-
-headNode = "1";
-Linked List = “1” -> “2” -> “3” -> 1
-// Expected Output: true
-
-*/
-
-
-
 //Question 5
 //Time Complexity : O(n)
 function checkIfValidParenthesis(str)
@@ -148,22 +115,5 @@ function checkIfValidParenthesis(str)
 
     return stack.length === 0;
 }
-
-/*
-TEST CASES:
-
-str = "()";
-// Expected Output: true
-
-str = "(){}[]";
-// Expected Output: true
-
-str = “([})”
-// Expected Output: false
-
-str = “[({})]”
-// Expected Output: true
-
-*/
 
 
